@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<script src="lib/js/Chart.js"></script>
+	<script src="lib/js/Chart.min.js"></script>
 
   </head>
   
@@ -92,7 +92,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	</script>
 	-->
-	<canvas id="myChart"></canvas>
+	
+	<!-- 
+		不放在一个div的container中整个表将占满整个网页，放在div中就好了，但是在html中放到div的 container中仍然不管用。
+	 -->
+	<div class="container">
+		<canvas id="myChart"></canvas>
+	</div>
+	
 	<script>
 		var ctx = document.getElementById("myChart");
 		var myChart = new Chart(ctx, {
@@ -120,6 +127,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            ],
 		            borderWidth: 1
 		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
 		    }
 		});
 	</script>
