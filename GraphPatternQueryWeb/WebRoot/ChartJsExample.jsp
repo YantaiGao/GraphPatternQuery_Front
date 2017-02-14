@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 		<canvas id="myChart"></canvas>
 	</div>
-	
+	<!-- Ö±·½Í¼ -->
 	<script>
 		var ctx = document.getElementById("myChart");
 		var myChart = new Chart(ctx, {
@@ -139,7 +139,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    }
 		});
 	</script>
-	
-  
+	<!-- ÕÛÏßÍ¼ -->
+    <div class="container">
+		<canvas id="LineChart"></canvas>
+	</div>
+	<script>
+		var ctxLine = document.getElementById("LineChart");
+		var myLineChart = new Chart(ctxLine, {
+		    type: 'line',
+		    data: data,
+		});
+		var data = {
+		    labels: ["January", "February", "March", "April", "May", "June", "July"],
+		    datasets: [
+		    	/**
+		        {
+		            label: "My First dataset",
+		            fill: false,
+		            lineTension: 0.1,
+		            backgroundColor: "rgba(75,192,192,0.4)",
+		            borderColor: "rgba(75,192,192,1)",
+		            borderCapStyle: 'butt',
+		            borderDash: [],
+		            borderDashOffset: 0.0,
+		            borderJoinStyle: 'miter',
+		            pointBorderColor: "rgba(75,192,192,1)",
+		            pointBackgroundColor: "#fff",
+		            pointBorderWidth: 1,
+		            pointHoverRadius: 5,
+		            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+		            pointHoverBorderColor: "rgba(220,220,220,1)",
+		            pointHoverBorderWidth: 2,
+		            pointRadius: 1,
+		            pointHitRadius: 10,
+		            data: [65, 59, 80, 81, 56, 55, 40],
+		            spanGaps: false,
+		        }*/
+		        {
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					data : [65,59,90,81,56,55,40]
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					data : [28,48,40,19,96,27,100]
+				}
+		        
+		    ]
+		};
+	</script>
   </body>
 </html>
