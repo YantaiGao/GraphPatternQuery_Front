@@ -144,38 +144,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<canvas id="LineChart"></canvas>
 	</div>
 	<script>
-		var ctxLine = document.getElementById("LineChart");
-		var myLineChart = new Chart(ctxLine, {
+		var ctxLine = document.getElementById("LineChart");//指向canvas
+		//实例化这个图表
+		var chartInstance = new Chart(ctxLine, {
 		    type: 'line',
-		    data: data,
+		    data: {
+				labels : ["January","February","March","April","May","June","July"],
+				datasets : [
+					{
+						fillColor : "rgba(220,220,220,0.5)",
+						strokeColor : "rgba(220,220,220,1)",
+						pointColor : "rgba(220,220,220,1)",
+						pointStrokeColor : "#fff",
+						data : [65,59,90,81,56,55,40]
+					},
+					{
+						fillColor : "rgba(151,187,205,0.5)",
+						strokeColor : "rgba(151,187,205,1)",
+						pointColor : "rgba(151,187,205,1)",
+						pointStrokeColor : "#fff",
+						data : [28,48,40,19,96,27,100]
+					}
+				]
+			},
+		    options: {
+		        title: {
+		            display: true,
+		            text: 'Custom Chart Title'
+		        }
+		    }
 		});
+		/**
+		使用以上这种方法，在初始化对象的时候使用data:data,然后在下边使用data是不能传入数据的，为什么呢？
 		var data = {
-		    labels: ["January", "February", "March", "April", "May", "June", "July"],
-		    datasets: [
-		    	/**
-		        {
-		            label: "My First dataset",
-		            fill: false,
-		            lineTension: 0.1,
-		            backgroundColor: "rgba(75,192,192,0.4)",
-		            borderColor: "rgba(75,192,192,1)",
-		            borderCapStyle: 'butt',
-		            borderDash: [],
-		            borderDashOffset: 0.0,
-		            borderJoinStyle: 'miter',
-		            pointBorderColor: "rgba(75,192,192,1)",
-		            pointBackgroundColor: "#fff",
-		            pointBorderWidth: 1,
-		            pointHoverRadius: 5,
-		            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-		            pointHoverBorderColor: "rgba(220,220,220,1)",
-		            pointHoverBorderWidth: 2,
-		            pointRadius: 1,
-		            pointHitRadius: 10,
-		            data: [65, 59, 80, 81, 56, 55, 40],
-		            spanGaps: false,
-		        }*/
-		        {
+			labels : ["January","February","March","April","May","June","July"],
+			datasets : [
+				{
 					fillColor : "rgba(220,220,220,0.5)",
 					strokeColor : "rgba(220,220,220,1)",
 					pointColor : "rgba(220,220,220,1)",
@@ -189,9 +193,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					pointStrokeColor : "#fff",
 					data : [28,48,40,19,96,27,100]
 				}
-		        
-		    ]
-		};
+			]
+		};*/
 	</script>
   </body>
 </html>
