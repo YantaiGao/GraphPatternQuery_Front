@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 		<canvas id="myChart"></canvas>
 	</div>
-	<!-- 直方图 -->
+	<!-- 柱状图 -->
 	<script>
 		var ctx = document.getElementById("myChart");
 		var myChart = new Chart(ctx, {
@@ -140,6 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 	</script>
 	<!-- 折线图 -->
+	<!-- 注意：在jsp中新增一个图表，要重启server才能在网页中刷新获得 -->
     <div class="container">
 		<canvas id="LineChart"></canvas>
 	</div>
@@ -195,6 +196,92 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			]
 		};*/
+	</script>
+	<!-- 饼图 -->
+    <div class="container">
+		<canvas id="PieChart"></canvas>
+	</div>
+	<script>
+		var ctxPie = document.getElementById("PieChart");//指向canvas
+		//实例化这个图表
+		var chartPie = new Chart(ctxPie, {
+		    type: 'pie',
+		    data: {
+				labels: [
+			        "Red",
+			        "Blue",
+			        "Yellow"
+			    ],
+			    datasets: [
+			        {
+			            data: [300, 50, 100],
+			            backgroundColor: [
+			                "#FF6384",
+			                "#36A2EB",
+			                "#FFCE56"
+			            ],
+			            hoverBackgroundColor: [
+			                "#FF6384",
+			                "#36A2EB",
+			                "#FFCE56"
+			            ]
+			    }]
+			}
+		});
+	</script>
+	<!-- 环形图 -->
+    <div class="container">
+		<canvas id="NutChart"></canvas>
+	</div>
+	<script>
+		var ctxNut = document.getElementById("NutChart").getContext("2d");//指向canvas
+		//实例化这个图表
+		var chartNUT = new Chart(ctxNut, {
+		    type: 'doughnut',
+		    data: {
+				labels: [
+			        "Red",
+			        "Blue",
+			        "Yellow"
+			    ],
+			    datasets: [
+			        {
+			            data: [300, 50, 100],
+			            backgroundColor: [
+			                "#FF6384",
+			                "#36A2EB",
+			                "#FFCE56"
+			            ],
+			            hoverBackgroundColor: [
+			                "#FF6384",
+			                "#36A2EB",
+			                "#FFCE56"
+			            ]
+			    }]
+			}
+		});
+		/**为什么这种实例化不行呢？？？
+		var myDoughnutChart = new Chart(ctxNut).Doughnut(data,options);
+		var data = [
+		    {
+		        value: 300,
+		        color:"#F7464A",
+		        highlight: "#FF5A5E",
+		        label: "Red"
+		    },
+		    {
+		        value: 50,
+		        color: "#46BFBD",
+		        highlight: "#5AD3D1",
+		        label: "Green"
+		    },
+		    {
+		        value: 100,
+		        color: "#FDB45C",
+		        highlight: "#FFC870",
+		        label: "Yellow"
+		    }
+		];*/
 	</script>
   </body>
 </html>
